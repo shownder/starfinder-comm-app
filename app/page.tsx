@@ -4,7 +4,7 @@ import { Animator } from '@arwes/react-animator';
 import { Dots, GridLines, MovingLines } from '@arwes/react-bgs';
 import { FrameNefrex } from '@arwes/react-frames';
 import { Text } from '@arwes/react-text'
-// import localFont from "next/font/local";
+import { Orbitron } from 'next/font/google'
 import { type BleepsProviderSettings, BleepsProvider } from '@arwes/react-bleeps'
 // import { ReactNode } from 'react';
 import { BleepsOnAnimator } from '@arwes/react';
@@ -41,9 +41,10 @@ const bleepsSettings: BleepsProviderSettings<BleepsNames> = {
   }
 }
 
-// const aturesFont = localFont({
-//   src: './fonts/atures.ttf',
-// })
+const orbitron = Orbitron({ 
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800', '900'],
+})
 
 export default function Home() {
   return (
@@ -63,7 +64,7 @@ export default function Home() {
               'radial-gradient(85% 85% at 50% 50%, hsla(185, 100%, 25%, 0.25) 0%, hsla(185, 100%, 25%, 0.12) 50%, hsla(185, 100%, 25%, 0) 100%)'
           }}
         >
-          <div style={{ position: 'relative', width: 150, height: 100, display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: 1000 }}>
+          <div style={{ position: 'relative', width: 180, height: 120, display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: 1000 }}>
             <Animator>
               <FrameNefrex
                 style={{
@@ -75,8 +76,7 @@ export default function Home() {
               />
               <BleepsOnAnimator<BleepsNames> transitions={{ entering: 'intro' }} />
               <Animator>
-                {/* <Text as="p" className={`text-decipher ${aturesFont.className}`} manager='decipher' fixed style={{ color: '#ddd', textAlign: 'center'}}>INCOMING COMMUNICATION</Text>*/}
-                <Text as="p" className={`text-decipher`} manager='decipher' fixed style={{ color: '#ddd', textAlign: 'center', fontFamily: 'atures'}}>INCOMING COMMUNICATION</Text>   
+                <Text as="p" className={`text-decipher ${orbitron.className}`} manager='decipher' fixed style={{ color: '#ddd', textAlign: 'center', fontWeight: '900'}}>INCOMING COMMUNICATION</Text>
               </Animator>            
             </Animator>
           </div>
