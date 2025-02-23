@@ -5,6 +5,11 @@ import { Animator } from '@arwes/react-animator';
 import { Dots } from '@arwes/react-bgs';
 import { FrameNefrex } from '@arwes/react-frames';
 import { Text } from '@arwes/react-text'
+import localFont from "next/font/local"; 
+
+const aturesFont = localFont({
+  src: './fonts/atures.ttf',
+})
 
 export default function Home() {
   return (
@@ -33,7 +38,7 @@ export default function Home() {
               
             </FrameNefrex>
             <Animator>
-              <Text as="p" className='text-decipher' manager='decipher' fixed style={{ color: '#ddd', textAlign: 'center', fontFamily: 'atures' }}>INCOMING COMMUNICATION</Text>
+              <Text as="p" className={`text-decipher ${aturesFont.className}`} manager='decipher' fixed style={{ color: '#ddd', textAlign: 'center'}}>INCOMING COMMUNICATION</Text>
             </Animator>
           </div>
         </Animator>
