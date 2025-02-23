@@ -4,7 +4,7 @@ import { Animator } from '@arwes/react-animator';
 import { Dots, GridLines, MovingLines } from '@arwes/react-bgs';
 import { FrameNefrex } from '@arwes/react-frames';
 import { Text } from '@arwes/react-text'
-// import localFont from "next/font/local";
+import localFont from "next/font/local";
 import { type BleepsProviderSettings, BleepsProvider } from '@arwes/react-bleeps'
 // import { ReactNode } from 'react';
 import { BleepsOnAnimator } from '@arwes/react';
@@ -41,9 +41,9 @@ const bleepsSettings: BleepsProviderSettings<BleepsNames> = {
   }
 }
 
-// const aturesFont = localFont({
-//   src: './fonts/atures.ttf',
-// })
+const aturesFont = localFont({
+  src: './fonts/atures.ttf',
+})
 
 export default function Home() {
   return (
@@ -75,9 +75,7 @@ export default function Home() {
               />
               <BleepsOnAnimator<BleepsNames> transitions={{ entering: 'intro' }} />
               <Animator>
-                {/* <Text as="p" className={`text-decipher ${aturesFont.className}`} manager='decipher' fixed style={{ color: '#ddd', textAlign: 'center'}}>INCOMING COMMUNICATION</Text>
-                 */}
-                 <Text as="p" className={`text-decipher`} manager='decipher' fixed style={{ color: '#ddd', textAlign: 'center'}}>INCOMING COMMUNICATION</Text>
+                <Text as="p" className={`text-decipher ${aturesFont.className}`} manager='decipher' fixed style={{ color: '#ddd', textAlign: 'center'}}>INCOMING COMMUNICATION</Text>                
               </Animator>            
             </Animator>
           </div>
