@@ -6,15 +6,9 @@ import { FrameNefrex } from '@arwes/react-frames';
 import { Text } from '@arwes/react-text'
 import { Orbitron } from 'next/font/google'
 import { type BleepsProviderSettings, BleepsProvider } from '@arwes/react-bleeps'
-// import { ReactNode } from 'react';
 import { BleepsOnAnimator } from '@arwes/react';
 
 type BleepsNames = 'click' | 'intro';
-
-// interface ButtonProps {
-//   name: BleepsNames
-//   children: ReactNode
-// };
 
 const bleepsSettings: BleepsProviderSettings<BleepsNames> = {
   categories: {
