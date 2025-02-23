@@ -5,7 +5,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: hwb(126 0% 93%);
     --foreground: #ededed;
   }
 }
@@ -40,3 +40,14 @@ a {
     color-scheme: dark;
   }
 }
+
+@font-face {
+  font-family: 'atures';
+  src: url("fonts/atures.ttf");
+ }
+
+ @font-face {
+  font-family: 'blinker';
+  src: url("fonts/blinker.ttf");
+ }
+ 
