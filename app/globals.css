@@ -41,9 +41,9 @@ a {
   }
 }
 
-/* @font-face {
+@font-face {
   font-family: 'atures';
-  src: url("fonts/Atures.ttf");
- } */
+  src: url("./fonts/Atures.ttf");
+ }
 
  
