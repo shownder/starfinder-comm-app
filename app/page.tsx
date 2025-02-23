@@ -1,12 +1,11 @@
 'use client';
 
-import { Animated } from '@arwes/react-animated';
 import { Animator } from '@arwes/react-animator';
 import { Dots, GridLines, MovingLines } from '@arwes/react-bgs';
 import { FrameNefrex } from '@arwes/react-frames';
 import { Text } from '@arwes/react-text'
 // import localFont from "next/font/local";
-import { type BleepsProviderSettings, BleepsProvider, useBleeps } from '@arwes/react-bleeps'
+import { type BleepsProviderSettings, BleepsProvider } from '@arwes/react-bleeps'
 // import { ReactNode } from 'react';
 import { BleepsOnAnimator } from '@arwes/react';
 
