@@ -2,45 +2,60 @@
 
 import { Animator } from '@arwes/react-animator';
 import { Dots, GridLines, MovingLines } from '@arwes/react-bgs';
-import { FrameNefrex } from '@arwes/react-frames';
+import { FrameNefrex, useFrameAssembler } from '@arwes/react-frames';
 import { Text } from '@arwes/react-text'
 import { Orbitron } from 'next/font/google'
-import { type BleepsProviderSettings, BleepsProvider } from '@arwes/react-bleeps'
-import { BleepsOnAnimator } from '@arwes/react';
-
-type BleepsNames = 'click' | 'intro';
-
-const bleepsSettings: BleepsProviderSettings<BleepsNames> = {
-  categories: {
-    background: { volume: 0.25 },
-    transition: { volume: 0.5 },
-    interaction: { volume: 0.75 },
-    notification: { volume: 1 }
-  },
-  bleeps: {
-    click: {
-      category: 'interaction',
-      sources: [
-        { src: './sounds/click.webm', type: 'audio/webm' },
-        { src: './sounds/click.mp3', type: 'audio/mpeg' }
-      ]
-    },
-    intro: {
-      category: 'notification',
-      sources: [
-        { src: './sounds/error.webm', type: 'audio/webm' },
-        { src: './sounds/error.mp3', type: 'audio/mpeg' }
-      ]
-    }
-  }
-}
+import { useBleeps, type BleepsProviderSettings } from '@arwes/react-bleeps'
+import { BleepsProvider } from '@arwes/react-bleeps'
+import { BleepsOnAnimator } from '@arwes/react-core'
+import { ReactNode } from 'react';
 
 const orbitron = Orbitron({ 
   subsets: ['latin'],
   weight: ['400', '500', '600', '700', '800', '900'],
 })
 
+type BleepsNames = 'click' | 'intro';
+
+type ButtonProps = {
+  children: ReactNode
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void
+}
+
+const Button = (props: ButtonProps): JSX.Element => {
+  const { children } = props
+  const bleeps = useBleeps<BleepsNames>()
+  const clicking = (): void => {
+    bleeps['click']?.play()
+    console.log("Clicked")
+  }
+  return <button className='messageButton' style={{ backgroundColor: 'transparent', border: 'none' }} onClick={clicking}>{children}</button>
+}
+
 export default function Home() {
+  const bleepsSettings: BleepsProviderSettings<BleepsNames> = {
+    categories: {
+      interaction: { volume: 0.75 },
+      notification: { volume: 1 }
+    },
+    bleeps: {
+      click: {
+        category: 'interaction',
+        sources: [
+          { src: './sounds/click.webm', type: 'audio/webm' },
+          { src: './sounds/click.mp3', type: 'audio/mpeg' }
+        ]
+      },
+      intro: {
+        category: 'notification',
+        sources: [
+          { src: './sounds/error.webm', type: 'audio/webm' },
+          { src: './sounds/error.mp3', type: 'audio/mpeg' }
+        ]
+      }
+    }
+  }
+  
   return (
     <BleepsProvider {...bleepsSettings}>
       <Animator active duration={{ enter: 1, interval: 10 }}>
@@ -59,20 +74,26 @@ export default function Home() {
           }}
         >
           <div style={{ position: 'relative', width: 180, height: 120, display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: 1000 }}>
-            <Animator>
-              <FrameNefrex
-                style={{
-                  // @ts-expect-error css variables
-                  '--arwes-frames-bg-color': 'hsl(180, 75%, 10%)',
-                  '--arwes-frames-line-color': 'hsl(180, 75%, 30%)',
-                  '--arwes-frames-deco-color': 'hsl(180, 75%, 50%)'
-                }}
-              />
-              <BleepsOnAnimator<BleepsNames> transitions={{ entering: 'intro' }} />
-              <Animator>
-                <Text as="p" className={`text-decipher ${orbitron.className}`} manager='decipher' fixed style={{ color: '#ddd', textAlign: 'center', fontWeight: '900'}}>INCOMING COMMUNICATION</Text>
-              </Animator>            
-            </Animator>
+              <Button>
+                <Animator>                  
+                  <FrameNefrex
+                    style={{
+                      // @ts-expect-error css variables
+                      '--arwes-frames-bg-color': 'hsl(180, 75%, 10%)',
+                      '--arwes-frames-line-color': 'hsl(180, 75%, 30%)',
+                      '--arwes-frames-deco-color': 'hsl(180, 75%, 50%)'
+                    }}
+                    leftBottom
+                    rightTop
+                  />
+                  <BleepsOnAnimator<BleepsNames> transitions={{ entering: 'intro' }} />
+                  <Animator> 
+                    <Text as="p" className={`text-decipher ${orbitron.className}`} manager='decipher' fixed style={{ color: '#ddd', textAlign: 'center', fontWeight: '900'}}>
+                      INCOMING COMMUNICATION
+                    </Text>
+                  </Animator>
+                </Animator>
+              </Button>                     
           </div>
           <GridLines lineColor="hsla(180, 100%, 75%, 0.05)" distance={30} />
           <Dots color="hsla(180, 100%, 75%, 0.05)" distance={30} />
