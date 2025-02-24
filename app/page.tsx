@@ -76,7 +76,7 @@ export default function Home() {
         >
           <div style={{ position: 'relative', width: 180, height: 120, display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: 1000 }}>
               <Button>
-                <Animator duration={{ enter: 2 }}>                  
+                <Animator duration={{ enter: 2 }}>
                   <FrameNefrex
                     style={{
                       // @ts-expect-error css variables
@@ -87,8 +87,9 @@ export default function Home() {
                     leftBottom
                     rightTop
                   />
-                  <BleepsOnAnimator<BleepsNames> transitions={{ entering: 'intro' }} />
+                  
                   <Animator> 
+                  <BleepsOnAnimator<BleepsNames> transitions={{ entered: 'intro' }} />
                     <Text as="p" className={`text-decipher ${orbitron.className}`} manager='decipher' fixed style={{ color: '#ddd', textAlign: 'center', fontWeight: '900'}}>
                       INCOMING COMMUNICATION
                     </Text>
