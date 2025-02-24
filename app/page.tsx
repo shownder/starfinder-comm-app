@@ -74,7 +74,7 @@ export default function Home() {
               'radial-gradient(85% 85% at 50% 50%, hsla(185, 100%, 25%, 0.25) 0%, hsla(185, 100%, 25%, 0.12) 50%, hsla(185, 100%, 25%, 0) 100%)'
           }}
         >
-          <div style={{ position: 'relative', width: 180, height: 120, display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: 1000 }}>
+          <div style={{ position: 'relative', width: 280, height: 150, display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: 1000 }}>
               <Button>
                 <Animator duration={{ enter: 2 }}>
                   <FrameNefrex
@@ -89,8 +89,8 @@ export default function Home() {
                   />
                   
                   <Animator> 
-                  <BleepsOnAnimator<BleepsNames> transitions={{ entered: 'intro' }} />
-                    <Text as="p" className={`text-decipher ${orbitron.className}`} manager='decipher' fixed style={{ color: '#ddd', textAlign: 'center', fontWeight: '900'}}>
+                  <BleepsOnAnimator<BleepsNames> transitions={{ entering: 'intro' }} />
+                    <Text as="p" className={`text-decipher ${orbitron.className}`} manager='decipher' fixed style={{ color: '#ddd', textAlign: 'center', fontWeight: '900', fontSize: '1.5rem'}}>
                       INCOMING COMMUNICATION
                     </Text>
                   </Animator>
