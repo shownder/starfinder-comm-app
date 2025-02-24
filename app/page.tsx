@@ -2,7 +2,7 @@
 
 import { Animator } from '@arwes/react-animator';
 import { Dots, GridLines, MovingLines } from '@arwes/react-bgs';
-import { FrameNefrex, useFrameAssembler } from '@arwes/react-frames';
+import { FrameNefrex } from '@arwes/react-frames';
 import { Text } from '@arwes/react-text'
 import { Orbitron } from 'next/font/google'
 import { useBleeps, type BleepsProviderSettings } from '@arwes/react-bleeps'
@@ -58,7 +58,8 @@ export default function Home() {
   
   return (
     <BleepsProvider {...bleepsSettings}>
-      <Animator active duration={{ enter: 1, interval: 10 }}>
+      <Animator duration={{ enter: 2, interval: 10 }}>
+      <BleepsOnAnimator<BleepsNames> transitions={{ entering: 'intro' }} />
         <div
           style={{
             position: 'absolute',
@@ -75,7 +76,7 @@ export default function Home() {
         >
           <div style={{ position: 'relative', width: 180, height: 120, display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: 1000 }}>
               <Button>
-                <Animator>                  
+                <Animator duration={{ enter: 2 }}>                  
                   <FrameNefrex
                     style={{
                       // @ts-expect-error css variables
