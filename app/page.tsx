@@ -5,10 +5,10 @@ import { Dots, GridLines, MovingLines } from '@arwes/react-bgs';
 import { FrameHeader, FrameNefrex, FrameUnderline } from '@arwes/react-frames';
 import { Text } from '@arwes/react-text'
 import { Orbitron } from 'next/font/google'
-import { useBleeps, type BleepsProviderSettings } from '@arwes/react-bleeps'
+import { type BleepsProviderSettings } from '@arwes/react-bleeps'
 import { BleepsProvider } from '@arwes/react-bleeps'
 import { BleepsOnAnimator } from '@arwes/react-core'
-import { ReactNode, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Animated } from '@arwes/react';
 
 const orbitron = Orbitron({ 
@@ -17,21 +17,6 @@ const orbitron = Orbitron({
 })
 
 type BleepsNames = 'click' | 'intro';
-
-type ButtonProps = {
-  children: ReactNode
-  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void
-}
-
-const Button = (props: ButtonProps): JSX.Element => {
-  const { children } = props
-  const bleeps = useBleeps<BleepsNames>()
-  const clicking = (): void => {
-    bleeps['click']?.play()
-    console.log("Clicked")
-  }
-  return <button className='messageButton' style={{ backgroundColor: 'transparent', border: 'none' }} onClick={clicking}>{children}</button>
-}
 
 export default function Home() {
   const [active, setActive] = useState(false)
