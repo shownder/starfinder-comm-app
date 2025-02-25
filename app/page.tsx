@@ -128,7 +128,7 @@ export default function Home() {
               </Animated>
               <Animated
                 as='div'
-                style={{ position: 'relative', width: '95vw', height: '140vh', marginTop: 10 }}
+                style={{ position: 'relative', width: '95vw', marginTop: 10, marginBottom: 10 }}
                 animated={['flicker']}
               >
                 <FrameUnderline
@@ -161,9 +161,13 @@ export default function Home() {
                         <p>Chiskisk,</p>
                         <p>Starfinder Society, Council Member</p>
                         <br />
-                        <p>Station security has sent out a mandate that all new arrivals must be warned of rumours of a gang war threat. I myself have seen no such evidence, and believe they are being dramatic.</p>
+                        <br />
+                        <p>PS:</p>
+                        <br />
+                        <p>Station security has sent out a mandate that all new arrivals must be made aware of gang war rumours. I myself have seen no such evidence, and believe they are being dramatic.</p>
                         <br />
                         <p>That said, it never hurts to be prepared for anything!</p>
+                        <br />
                       </Text>
                     </Animator>
                     {/* <Animator>
