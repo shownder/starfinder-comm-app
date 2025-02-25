@@ -175,47 +175,6 @@ export default function Home() {
                           <br />
                         </Text>
                       </Animator>
-                      {/* <Animator>
-                        <Text>Greetings recruit,</Text>
-                      </Animator>
-                      <br />
-                      <Animator>
-                        <Text>We are pleased to let you know that you have been chosen out of thousands of candidates to join our prestigious group.</Text>
-                      </Animator>
-                      <br />
-                      <Animator>
-                        <Text>Please make your way to Absalom Station by Pharast Firstday at 0600 SPT (Standard Pact Time). For your convenience, we have hired  the Okimoro, a shuttle leaving from Aballon that will have you here right on time.</Text>
-                      </Animator>
-                      <br />
-                      <Animator>
-                        <Text>You will also find that 1000 credits have been transferred to your account as a means to buy equipment, I recommend you use it prior to your arrival.</Text>
-                      </Animator>
-                      <br />
-                      <Animator>
-                        <Text>Once you arrive, look for Duravor Kreel, who will be facilitating your membership to the Society. He will be waiting for you in docking bay 94 at the aforementioned time.</Text>
-                      </Animator>
-                      <br />
-                      <Animator>
-                        <Text>We thank you again for your interest in joining the Starfinder Society, and look forward to meeting you!</Text>
-                      </Animator>
-                      <br />
-                      <Animator>
-                        <Text>Sincerely,</Text>
-                      </Animator>
-                      <br />
-                      <Animator>
-                        <Text>Chiskisk,</Text>
-                        <Text>Starfinder Society, Council Member</Text>
-                      </Animator>
-                      <br />
-                      <Animator>
-                        <Text>Station security has sent out a mandate that all new arrivals must be warned of rumours of a gang war threat. I myself have seen no such evidence, and believe they are being dramatic.</Text>
-                      </Animator>
-                      <br />
-                      <Animator>
-                        <Text>That said, it never hurts to be prepared for anything!</Text>
-                      </Animator> */}
-                    {/* </Animator> */}
                   </div>
                 </Animated>
               </div>
