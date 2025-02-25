@@ -16,7 +16,7 @@ const orbitron = Orbitron({
   weight: ['400', '500', '600', '700', '800', '900'],
 })
 
-type BleepsNames = 'click' | 'intro';
+type BleepsNames = 'type' | 'intro';
 
 export default function Home() {
   const [active, setActive] = useState(false)
@@ -25,14 +25,14 @@ export default function Home() {
   useEffect(() => {
     const tid = setInterval(() => {
       setMessageActive(false);
-    }, 7000);
+    }, 6000);
     return () => clearInterval(tid);
   }, []);
 
   useEffect(() => {
     const tid = setInterval(() => {
       setActive(true);
-    }, 8000);
+    }, 7000);
     return () => clearInterval(tid);
   }, []);
 
@@ -42,12 +42,13 @@ export default function Home() {
       notification: { volume: 1 }
     },
     bleeps: {
-      click: {
+      type: {
         category: 'interaction',
         sources: [
-          { src: './sounds/click.webm', type: 'audio/webm' },
-          { src: './sounds/click.mp3', type: 'audio/mpeg' }
-        ]
+          { src: './sounds/type.webm', type: 'audio/webm' },
+          { src: './sounds/type.mp3', type: 'audio/mpeg' }
+        ],
+        loop: true
       },
       intro: {
         category: 'notification',
@@ -127,7 +128,7 @@ export default function Home() {
               </Animated>
               <Animated
                 as='div'
-                style={{ position: 'relative', width: '95vw', height: '94vh', marginTop: 10 }}
+                style={{ position: 'relative', width: '95vw', height: '140vh', marginTop: 10 }}
                 animated={['flicker']}
               >
                 <FrameUnderline
@@ -139,35 +140,73 @@ export default function Home() {
                   }}
                 />
                 <div style={{ position: 'relative', color: 'cyan', fontSize: '20px', fontWeight: '400', margin: '5px' }} className={`header-text ${orbitron.className}`}>
-                  <Animator duration={{ enter: 5 }} combine manager="sequence">
-                    <Animator>
+                  {/* <Animator duration={{ enter: 7 }} > */}
+                    {/* <BleepsOnAnimator<BleepsNames> transitions={{ entering: 'type' }} /> */}
+                    <Animator active={active} duration={{ enter: 1.5, exit: 1.5 }}>
+                      <Text as='div' manager="decipher" easing="outSine" fixed>
+                        <p>Greetings recruit,</p>
+                        <br />
+                        <p>We are pleased to let you know that you have been chosen out of thousands of candidates to join our prestigious group.</p>
+                        <br />
+                        <p>Please make your way to Absalom Station by Pharast Firstday at 0600 SPT (Standard Pact Time). For your convenience, we have hired  the Okimoro, a shuttle leaving from Aballon that will have you here right on time.</p>
+                        <br />
+                        <p>You will also find that 1000 credits have been transferred to your account as a means to buy equipment, I recommend you use it prior to your arrival.</p>
+                        <br />
+                        <p>Once you arrive, look for Duravor Kreel, who will be facilitating your membership to the Society. He will be waiting for you in docking bay 94 at the aforementioned time.</p>
+                        <br />
+                        <p>We thank you again for your interest in joining the Starfinder Society, and look forward to meeting you!</p>
+                        <br />
+                        <p>Sincerely,</p>
+                        <br />
+                        <p>Chiskisk,</p>
+                        <p>Starfinder Society, Council Member</p>
+                        <br />
+                        <p>Station security has sent out a mandate that all new arrivals must be warned of rumours of a gang war threat. I myself have seen no such evidence, and believe they are being dramatic.</p>
+                        <br />
+                        <p>That said, it never hurts to be prepared for anything!</p>
+                      </Text>
+                    </Animator>
+                    {/* <Animator>
                       <Text>Greetings recruit,</Text>
                     </Animator>
                     <br />
                     <Animator>
-                      <Text>We are please to announce that you have been selected to join the ranks of the Starfinder Society!</Text>
+                      <Text>We are pleased to let you know that you have been chosen out of thousands of candidates to join our prestigious group.</Text>
                     </Animator>
                     <br />
                     <Animator>
-                      <Text>Your mission, should you choose to accept it, is to locate and secure the lost city of gold, rumored to be hidden somewhere in the uncharted reaches of the galaxy.</Text>
+                      <Text>Please make your way to Absalom Station by Pharast Firstday at 0600 SPT (Standard Pact Time). For your convenience, we have hired  the Okimoro, a shuttle leaving from Aballon that will have you here right on time.</Text>
                     </Animator>
                     <br />
                     <Animator>
-                      <Text>The city is said to be guarded by a powerful artifact known as the Starfinder Key, which is said to grant the holder unimaginable power.</Text>
+                      <Text>You will also find that 1000 credits have been transferred to your account as a means to buy equipment, I recommend you use it prior to your arrival.</Text>
                     </Animator>
                     <br />
                     <Animator>
-                      <Text>The last known location of the key is said to be on the planet of Thalassa, a water-covered world known for its lush jungles and dangerous wildlife.</Text>
+                      <Text>Once you arrive, look for Duravor Kreel, who will be facilitating your membership to the Society. He will be waiting for you in docking bay 94 at the aforementioned time.</Text>
                     </Animator>
                     <br />
                     <Animator>
-                      <Text>Your mission is to locate the key and bring it back to the Society.</Text>
+                      <Text>We thank you again for your interest in joining the Starfinder Society, and look forward to meeting you!</Text>
                     </Animator>
                     <br />
                     <Animator>
-                      <Text>Good luck, and may the stars guide you.</Text>
-                    </Animator>                
-                  </Animator>
+                      <Text>Sincerely,</Text>
+                    </Animator>
+                    <br />
+                    <Animator>
+                      <Text>Chiskisk,</Text>
+                      <Text>Starfinder Society, Council Member</Text>
+                    </Animator>
+                    <br />
+                    <Animator>
+                      <Text>Station security has sent out a mandate that all new arrivals must be warned of rumours of a gang war threat. I myself have seen no such evidence, and believe they are being dramatic.</Text>
+                    </Animator>
+                    <br />
+                    <Animator>
+                      <Text>That said, it never hurts to be prepared for anything!</Text>
+                    </Animator> */}
+                  {/* </Animator> */}
                 </div>
               </Animated>
             </div>
