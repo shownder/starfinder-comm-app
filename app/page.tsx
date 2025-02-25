@@ -64,13 +64,13 @@ export default function Home() {
   
   return (
     <BleepsProvider {...bleepsSettings}>
-      <div style={{ backgroundColor: 'hsla(180, 100%, 75%, 0.05)' }}>
+      <div>
         <Animator duration={{ enter: 2, interval: 10 }}>
           <BleepsOnAnimator<BleepsNames> transitions={{ entering: 'intro' }} />
           <Animated
             as='div'
             style={{
-              position: 'absolute',
+              position: 'fixed',
               width: '100vw',
               height: '100vh',
               display: 'flex',
@@ -79,7 +79,8 @@ export default function Home() {
               inset: 0,
               backgroundColor: '#000906',
               backgroundImage:
-                'radial-gradient(85% 85% at 50% 50%, hsla(185, 100%, 25%, 0.25) 0%, hsla(185, 100%, 25%, 0.12) 50%, hsla(185, 100%, 25%, 0) 100%)'
+                'radial-gradient(85% 85% at 50% 50%, hsla(185, 100%, 25%, 0.25) 0%, hsla(185, 100%, 25%, 0.12) 50%, hsla(185, 100%, 25%, 0) 100%)',
+              overflow: 'hidden'
             }}
           >
             <GridLines lineColor="hsla(180, 100%, 75%, 0.05)" distance={30} />
